@@ -160,23 +160,21 @@ We  will run a **PySpark Apache Spark** script to count the number of users, gro
 
     ![](assets/images/posts/README/24.jpg)
 
-33. 
+    
 
-34. 
+33. Lets navigate back to EMR and add a new step.
 
-35. Lets navigate back to EMR and add a new step.
+34. For the name we write : `Run Pyspark Script`
 
-36. For the name we write : `Run Pyspark Script`
+35. For the Jar location: `command-runner.jar`
 
-37. For the Jar location: `command-runner.jar`
+36. Arguments: `spark-submit hdfs:///pyspark-script/emr-pyspark-code.py`
 
-38. Arguments: `spark-submit hdfs:///pyspark-script/emr-pyspark-code.py`
-
-39. We add this step and we wait.
+37. We add this step and we wait.
 
     
 
-40. ![](assets/images/posts/README/25.jpg)
+38. ![](assets/images/posts/README/25.jpg)
 
     The previous step contains a python script
 
@@ -205,7 +203,7 @@ We  will run a **PySpark Apache Spark** script to count the number of users, gro
 
     
 
-41. We wait for the step is finish.
+39. We wait for the step is finish.
 
     ![](assets/images/posts/README/a.jpg)
 
@@ -213,7 +211,7 @@ We  will run a **PySpark Apache Spark** script to count the number of users, gro
 
     ![](assets/images/posts/README/29.jpg)
 
-42. We go back to our browser and we see the results folder![](assets/images/posts/README/26.jpg)
+40. We go back to our browser and we see the results folder![](assets/images/posts/README/26.jpg)
 
     ![](assets/images/posts/README/27.jpg)
 
@@ -221,27 +219,27 @@ We  will run a **PySpark Apache Spark** script to count the number of users, gro
 
      We will create a third step to use the `s3-dist-cp` command to copy our results from HDFS to S3. These results can be used later to create marketing campaigns for your users. We are going to add a final step that is going to load the results  from our HDFS cluster into S3
 
-43. We create new bucket. For example `gender-age-analytics-bucket`
+41. We create new bucket. For example `gender-age-analytics-bucket`
 
     ![](assets/images/posts/README/30.jpg)
 
-44. Lets navigate back to EMR and add a new step.
+42. Lets navigate back to EMR and add a new step.
 
-45. For the name we write : `Load results to S3`
+43. For the name we write : `Load results to S3`
 
-46. For the Jar location: `command-runner.jar`
+44. For the Jar location: `command-runner.jar`
 
-47. Arguments: `s3-dist-cp --src=hdfs:///results --dest=s3://gender-age-analytics-bucket`
+45. Arguments: `s3-dist-cp --src=hdfs:///results --dest=s3://gender-age-analytics-bucket`
 
-48. We add this step and we wait.
+46. We add this step and we wait.
 
-49. ![](assets/images/posts/README/31.jpg)
+47. ![](assets/images/posts/README/31.jpg)
 
-50. We can go our s3 bucket and download the file 
+48. We can go our s3 bucket and download the file 
 
     <img src="assets/images/posts/README/download.jpg" style="zoom:50%;" />
 
-51. We open the file and we see that is showing all of the results of all users with age and gender  aggregated together.
+49. We open the file and we see that is showing all of the results of all users with age and gender  aggregated together.
 
     <img src="assets/images/posts/README/32.jpg" style="zoom:50%;" />
 
